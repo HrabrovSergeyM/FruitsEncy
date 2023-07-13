@@ -18,9 +18,13 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(fruits) { fruit in
-                    FruitRowView(fruit: fruit)
-                        .listRowSeparator(.hidden)
+                    NavigationLink(destination: FruitDetailView(fruit: fruit)) {
+                        FruitRowView(fruit: fruit)
+                    }
+                    .padding(.vertical, 8)
+                    .listRowSeparator(.hidden)
                 }
+               
             } // List
             .listStyle(PlainListStyle())
             .navigationTitle("Fruits")
